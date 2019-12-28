@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="get" action="{{ url_for('insert_record', table_name=table_name) }}">
+        <button type="submit" id="add_new_record" class="btn btn-primary">Добавить новую запись</button>
+    </form>
+    <div class="sort">
+        <div id="sort_block" class="sort_cond_block">
+            <div class="sort_choice_block">
+                <select class="sort_method form-control">
+                    {% for col_name in struct %}
+                        <option>{{ col_name[0] }}</option>
+                    {% endfor %}
+                </select>
+                <select class="sort_direction form-control">
+                    <option>По возрастанию</option>
+                    <option>По убыванию</option>
+                </select>
+            </div>
+            <div class="buttons">
+                <button id="add_sort" class="btn btn-primary">+</button>
+                <button id="rem_sort" class="btn btn-primary">-</button>
+            </div>
+        </div>
+        <div id="condition_block" class="sort_cond_block">
+            <div class="condition_choice_block">
+                <select class="condition_method form-control">
+                    {% for col_name in struct %}
+                        <option>{{ col_name[0] }}</option>
+                    {% endfor %}
+                </select>
+                <select class="condition_condition form-control">
+                    <option>Равняется</option>
+                    <option>Не равняется</option>
+                    <option>Больше</option>
+                    <option>Меньше</option>
+                    <option>Больше равно</option>
+                    <option>Меньше равно</option>
+                    <option>Содержит</option>
+                </select>
+             <input type="text" class="input-data form-control">
+            </div>
+            <div class="buttons">
+                <button id="add_cond" class="btn btn-primary">+</button>
+                <button id="rem_cond" class="btn btn-primary">-</button>
+            </div>
+        </div>
+        <div style="display: inline-block">
+            <button id="apply_button" class="btn btn-primary">Применить</button>
+        </div>
+    </div>
+
+    <div class="row mb-3" style="margin: 0">
+        {% for col_name in struct %}
+            <div class="col themed-grid-col">{{ col_name[0] }}</div>
+        {% endfor %}
+        <div style="margin: auto; padding-left: 10px; text-indent: 100%; overflow: hidden;">Редактировать</div>
+    </div>
+
+    <div id="data">
+        {% for row in data %}
+            <div class="row mb-3" style="margin: 0">
+            {% for col in row %}
+                <div class="col themed-grid-col">{{ col }}</div>
+            {% endfor %}
+            <a style="margin: auto; padding-left: 10px;" href="{{ url_for('edit_record', table_name=table_name, id=row[0]) }}">Редактировать</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

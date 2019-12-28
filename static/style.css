@@ -1,0 +1,57 @@
+.themed-grid-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.sort {
+  margin-bottom: 5px;
+}
+
+.sort button {
+  vertical-align: unset;
+}
+
+#add_new_record{
+  margin-bottom: 10px;
+}
+
+.sort select {
+  display: initial;
+  width: unset;
+}
+.sort_cond_block{
+  vertical-align: top;
+  display: inline-block;
+}
+
+
+.buttons {
+  margin-top: 10px;
+}
+
+.buttons button{
+  min-width: 40px;
+}
+
+.e-buttons{
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.input-data{
+  width: 130px;
+  display: inline-block;
+
+}
+
+.col-type {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  white-space: nowrap;
+  flex-basis: unset;
+  flex-grow: unset;
+  position: unset;
+  width: 15%;
+}

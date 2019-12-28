@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for message in get_flashed_messages() %}
+        <h6 style="color: #6c757d;" class="border-bottom border-gray pb-2 mb-0">{{ message }}</h6>
+    {% endfor %}
+{% endblock %}

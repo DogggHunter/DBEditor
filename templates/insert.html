@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+        <form method="post">
+            {% for col_name in struct %}
+                <div class="row mb-3" style="margin: 0">
+                    <div class="col-type col themed-grid-col">{{ col_name[0] }}</div>
+                    {% if col_name[0] == 'employee_id' or col_name[0] == 'department_id' %}
+                        <select name="{{ col_name[0] }}" style="width: 50%; margin-left: 5px" class="form-control">
+                            {% for elem in select_col %}
+                                <option>{{ elem[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    {% else %}
+                        <input type="text" name="{{ col_name[0] }}" required style="width: 50%; margin-left: 5px" class="form-control">
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="e-buttons">
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+        </form>
+{% endblock %}
