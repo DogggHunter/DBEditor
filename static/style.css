@@ -55,3 +55,8 @@
   position: unset;
   width: 15%;
 }
+
+#creator{
+  background-color: #6f42c1;
+  color: white;
+}
